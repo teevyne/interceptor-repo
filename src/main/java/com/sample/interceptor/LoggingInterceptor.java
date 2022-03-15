@@ -1,6 +1,7 @@
 package com.sample.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,8 +34,11 @@ public class LoggingInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(
-            HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Object handler,
+            @Nullable Exception ex) throws Exception {
+
         if (ex != null){
             ex.printStackTrace();
         }
